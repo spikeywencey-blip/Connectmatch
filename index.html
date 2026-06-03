@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectMatch - Meet Your Perfect Match</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>ConnectMatch</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#login" class="nav-link">Login</a></li>
+                <li><a href="#signup" class="nav-link active-btn">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Find Your Perfect Match</h2>
+            <p>Connect with real people, build meaningful relationships</p>
+            <a href="#signup" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <div class="hero-placeholder">💕</div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Why Choose ConnectMatch?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Safe & Secure</h3>
+                <p>Your safety is our priority. We use advanced security measures to protect your data.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Smart Matching</h3>
+                <p>Our AI-powered algorithm finds the best matches based on your interests.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Real-Time Chat</h3>
+                <p>Connect instantly with matches through our fast and reliable chat system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile First</h3>
+                <p>Access ConnectMatch on any device. Works seamlessly on desktop and mobile.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Community</h3>
+                <p>Join millions of users worldwide looking for genuine connections.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Premium Features</h3>
+                <p>Unlock advanced filters, see who likes you, and boost your profile.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-container">
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form active">
+                    <h2>Login</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="remember-me" name="remember">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn-primary">Login</button>
+                    </form>
+                    <p>Don't have an account? <a href="#" class="toggle-auth" data-form="signup">Sign up</a></p>
+                    <p><a href="#" class="toggle-auth" data-form="forgot">Forgot password?</a></p>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div id="signup-form" class="auth-form">
+                    <h2>Create Account</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="signup-firstname">First Name</label>
+                            <input type="text" id="signup-firstname" name="firstname" placeholder="First name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-lastname">Last Name</label>
+                            <input type="text" id="signup-lastname" name="lastname" placeholder="Last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="password" placeholder="Create a strong password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <input type="password" id="signup-confirm-password" name="confirm-password" placeholder="Confirm password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-gender">Gender</label>
+                            <select id="signup-gender" name="gender" required>
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the Terms & Conditions</label>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Account</button>
+                    </form>
+                    <p>Already have an account? <a href="#" class="toggle-auth" data-form="login">Login</a></p>
+                </div>
+
+                <!-- Forgot Password Form -->
+                <div id="forgot-form" class="auth-form">
+                    <h2>Reset Password</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="reset-email">Email Address</label>
+                            <input type="email" id="reset-email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <p class="info-text">We'll send you a link to reset your password</p>
+                        <button type="submit" class="btn-primary">Send Reset Link</button>
+                    </form>
+                    <p><a href="#" class="toggle-auth" data-form="login">Back to Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard (Hidden by default) -->
+    <div id="dashboard" class="dashboard hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#discover" class="sidebar-link active" data-page="discover">🔍 Discover</a></li>
+                <li><a href="#matches" class="sidebar-link" data-page="matches">💕 Matches</a></li>
+                <li><a href="#messages" class="sidebar-link" data-page="messages">💬 Messages</a></li>
+                <li><a href="#profile" class="sidebar-link" data-page="profile">👤 Profile</a></li>
+                <li><a href="#settings" class="sidebar-link" data-page="settings">⚙️ Settings</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="btn-logout">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." id="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <div class="top-bar-icons">
+                    <button class="icon-btn" id="notifications-btn">🔔</button>
+                    <button class="icon-btn" id="profile-menu-btn">👤</button>
+                </div>
+            </div>
+
+            <!-- Discover Page -->
+            <div id="discover-page" class="page-content active">
+                <h2>Discover Profiles</h2>
+                <div class="discover-controls">
+                    <button class="filter-btn">🔽 Filters</button>
+                    <button class="toggle-dark-mode">🌙 Dark Mode</button>
+                </div>
+
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <div class="profile-images">
+                        <img src="https://via.placeholder.com/400x500?text=Profile+Photo" alt="Profile" class="profile-photo">
+                        <div class="image-counter">1/5</div>
+                    </div>
+                    <div class="profile-info">
+                        <h3>Jessica, 26</h3>
+                        <p class="location">📍 New York, NY</p>
+                        <p class="bio">Love hiking, reading, and good coffee. Looking for someone genuine and kind.</p>
+                        <div class="interests">
+                            <span class="tag">Hiking</span>
+                            <span class="tag">Reading</span>
+                            <span class="tag">Coffee</span>
+                            <span class="tag">Travel</span>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-pass">✕ Pass</button>
+                        <button class="btn-like">❤️ Like</button>
+                        <button class="btn-super-like">⭐ Super Like</button>
+                    </div>
+                </div>
+
+                <!-- Filter Modal -->
+                <div id="filter-modal" class="modal">
+                    <div class="modal-content filter-content">
+                        <span class="close">&times;</span>
+                        <h2>Search Filters</h2>
+                        <form class="filter-form">
+                            <div class="form-group">
+                                <label for="filter-age">Age Range</label>
+                                <input type="range" id="filter-age" min="18" max="100" value="25" class="range-input">
+                                <span class="range-value">18 - 50</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="filter-distance">Distance (miles)</label>
+                                <input type="range" id="filter-distance" min="1" max="500" value="50" class="range-input">
+                                <span class="range-value">50</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="filter-gender">Looking for</label>
+                                <select id="filter-gender">
+                                    <option value="">All Genders</option>
+                                    <option value="male">Men</option>
+                                    <option value="female">Women</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="filter-interests">Interests</label>
+                                <input type="text" id="filter-interests" placeholder="Enter interests">
+                            </div>
+                            <button type="submit" class="btn-primary">Apply Filters</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matches Page -->
+            <div id="matches-page" class="page-content">
+                <h2>Your Matches</h2>
+                <div class="matches-grid">
+                    <div class="match-card">
+                        <img src="https://via.placeholder.com/150x150?text=Match+1" alt="Match">
+                        <h4>Sarah, 25</h4>
+                        <p class="match-status">Matched 2 hours ago</p>
+                        <button class="btn-secondary">Message</button>
+                    </div>
+                    <div class="match-card">
+                        <img src="https://via.placeholder.com/150x150?text=Match+2" alt="Match">
+                        <h4>Emma, 27</h4>
+                        <p class="match-status">Matched 1 day ago</p>
+                        <button class="btn-secondary">Message</button>
+                    </div>
+                    <div class="match-card">
+                        <img src="https://via.placeholder.com/150x150?text=Match+3" alt="Match">
+                        <h4>Lisa, 24</h4>
+                        <p class="match-status">Matched 3 days ago</p>
+                        <button class="btn-secondary">Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Page -->
+            <div id="messages-page" class="page-content">
+                <div class="messages-container">
+                    <!-- Chat List -->
+                    <div class="chat-list">
+                        <h2>Messages</h2>
+                        <div class="chat-item active">
+                            <img src="https://via.placeholder.com/50x50?text=User1" alt="User">
+                            <div class="chat-info">
+                                <h4>Sarah</h4>
+                                <p>That sounds great! When are you free? 😊</p>
+                            </div>
+                            <span class="chat-time">2m ago</span>
+                        </div>
+                        <div class="chat-item">
+                            <img src="https://via.placeholder.com/50x50?text=User2" alt="User">
+                            <div class="chat-info">
+                                <h4>Emma</h4>
+                                <p>Thanks for the compliment! 💕</p>
+                            </div>
+                            <span class="chat-time">1h ago</span>
+                        </div>
+                        <div class="chat-item">
+                            <img src="https://via.placeholder.com/50x50?text=User3" alt="User">
+                            <div class="chat-info">
+                                <h4>Lisa</h4>
+                                <p>I love that place too!</p>
+                            </div>
+                            <span class="chat-time">5h ago</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Window -->
+                    <div class="chat-window">
+                        <div class="chat-header">
+                            <h3>Sarah</h3>
+                            <div class="chat-header-icons">
+                                <button class="icon-btn">📞</button>
+                                <button class="icon-btn">🎥</button>
+                                <button class="icon-btn">⋮</button>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages">
+                            <div class="message received">
+                                <p>Hey! How are you?</p>
+                                <span class="timestamp">10:30 AM</span>
+                            </div>
+                            <div class="message sent">
+                                <p>Hey! I'm doing great, thanks for asking!</p>
+                                <span class="timestamp">10:31 AM</span>
+                            </div>
+                            <div class="message received">
+                                <p>That's awesome! Would you like to grab coffee sometime?</p>
+                                <span class="timestamp">10:32 AM</span>
+                            </div>
+                            <div class="message sent">
+                                <p>That sounds great! When are you free?</p>
+                                <span class="timestamp">10:33 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type your message..." class="message-input">
+                            <button class="btn-attach">📎</button>
+                            <button class="btn-send">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="profile-page" class="page-content">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-photo-large">
+                            <img src="https://via.placeholder.com/200x200?text=Profile" alt="Profile">
+                            <button class="btn-edit-photo">📷</button>
+                        </div>
+                        <h2>John Doe, 28</h2>
+                        <p class="profile-status">📍 Los Angeles, CA</p>
+                    </div>
+
+                    <div class="profile-content">
+                        <h3>About Me</h3>
+                        <p class="profile-bio">Software developer, fitness enthusiast, and travel lover. Looking for someone to share adventures with.</p>
+
+                        <h3>Interests</h3>
+                        <div class="interests-list">
+                            <span class="tag">Technology</span>
+                            <span class="tag">Fitness</span>
+                            <span class="tag">Travel</span>
+                            <span class="tag">Movies</span>
+                        </div>
+
+                        <h3>My Photos</h3>
+                        <div class="photos-grid">
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/150x150?text=Photo+1" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/150x150?text=Photo+2" alt="Photo">
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/150x150?text=Photo+3" alt="Photo">
+                            </div>
+                            <div class="photo-item add-photo">
+                                <button>+ Add Photo</button>
+                            </div>
+                        </div>
+
+                        <h3>Relationship Goals</h3>
+                        <select class="select-input">
+                            <option>Looking for a relationship</option>
+                            <option>Looking to date</option>
+                            <option>Not sure yet</option>
+                        </select>
+
+                        <button class="btn-primary" id="edit-profile-btn">Edit Profile</button>
+                    </div>
+                </div>
+
+                <!-- Edit Profile Modal -->
+                <div id="edit-profile-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Edit Profile</h2>
+                        <form class="edit-profile-form">
+                            <div class="form-group">
+                                <label for="edit-firstname">First Name</label>
+                                <input type="text" id="edit-firstname" value="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-lastname">Last Name</label>
+                                <input type="text" id="edit-lastname" value="Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-age">Age</label>
+                                <input type="number" id="edit-age" value="28" min="18" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-location">Location</label>
+                                <input type="text" id="edit-location" value="Los Angeles, CA" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-bio">Bio</label>
+                                <textarea id="edit-bio" rows="4" required>Software developer, fitness enthusiast, and travel lover.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-interests">Interests (comma-separated)</label>
+                                <input type="text" id="edit-interests" value="Technology, Fitness, Travel, Movies" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="settings-page" class="page-content">
+                <div class="settings-container">
+                    <h2>Settings</h2>
+
+                    <div class="settings-section">
+                        <h3>Privacy & Safety</h3>
+                        <div class="settings-item">
+                            <label>Hide Profile</label>
+                            <input type="checkbox" class="toggle-switch">
+                        </div>
+                        <div class="settings-item">
+                            <label>Control Who Can Message</label>
+                            <select class="select-input">
+                                <option>Anyone</option>
+                                <option>Matches Only</option>
+                                <option>Nobody</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Notifications</h3>
+                        <div class="settings-item">
+                            <label>New Matches</label>
+                            <input type="checkbox" class="toggle-switch" checked>
+                        </div>
+                        <div class="settings-item">
+                            <label>Messages</label>
+                            <input type="checkbox" class="toggle-switch" checked>
+                        </div>
+                        <div class="settings-item">
+                            <label>Profile Visitors</label>
+                            <input type="checkbox" class="toggle-switch" checked>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Account</h3>
+                        <div class="settings-item">
+                            <button class="btn-secondary">Change Password</button>
+                        </div>
+                        <div class="settings-item">
+                            <button class="btn-secondary">Download My Data</button>
+                        </div>
+                        <div class="settings-item">
+                            <button class="btn-danger">Delete Account</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Appearance</h3>
+                        <div class="settings-item">
+                            <label>Theme</label>
+                            <select class="select-input">
+                                <option>Light</option>
+                                <option>Dark</option>
+                                <option>Auto</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- About Section (Landing Page) -->
+    <section id="about" class="about">
+        <h2>About ConnectMatch</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>ConnectMatch is a modern dating platform designed to help you find meaningful connections. With our advanced matching algorithm and secure platform, you can confidently explore potential matches and build relationships.</p>
+                <ul>
+                    <li>✓ Founded in 2024</li>
+                    <li>✓ 2M+ Active Users</li>
+                    <li>✓ 100% Verified Profiles</li>
+                    <li>✓ 24/7 Support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ConnectMatch</h4>
+                <p>Find your perfect match today</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#safety">Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ConnectMatch. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
